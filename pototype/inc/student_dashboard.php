@@ -3,6 +3,7 @@ $page['title'] = "Student Dashboard";
 include_once ('config.inc.php');
 include_once 'database_connect.inc.php';
 include_once (realpath('templates/stapped/header.php'));
+include_once (realpath('templates/stapped/navbar.php'));
 
 $sql = "SELECT id, name, time, checked FROM tbl_activity";
 $result = $connect->query($sql);

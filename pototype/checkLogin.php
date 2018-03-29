@@ -15,6 +15,6 @@ if($user > 100){
 }
 
 
-header("Location: drashboard.php");
+header("Location: dashboard.php");
 die();
 ?>

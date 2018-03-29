@@ -5,11 +5,10 @@
         exit(0);
     }
     if($_SESSION['token'] == "TEACHER"){
-        include_once 'inc/teacher_drashboard.php';
+        include_once 'inc/teacher_course.php';
     }elseif($_SESSION['token'] == "STUDENT"){
-        include_once 'inc/student_drashboard.php';
+        include_once 'inc/student_course.php';
     }else{
         echo "error token";
     }
 ?>
-

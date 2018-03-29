@@ -9,16 +9,19 @@ include_once (realpath('templates/stapped/navbar.php'));
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-3">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <div class="row">
+                <div clss="col">
+                    <img src="img/pic.png" alt="Responsive image" class="rounded float-left" style="width:100%;height: 130px;">
+                </div>
+                <div class="col">
+                    <h1 class="display-3">Course_name</h1>
+                    <p class="lead">Couese_ID</p>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <h1 class="mt-5">Student Course</h1>
-        </div>
-        <div class="row">
-            <a href="dashboard.php" class="badge badge-primary">Student Dashboard</a>
+        <div class ="row">
         </div>
     </div>
 </body>

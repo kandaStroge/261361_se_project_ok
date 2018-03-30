@@ -1,11 +1,11 @@
 <?php
-$page['title'] = "Student Dashboard";
+$page['title'] = "Teacher Dashboard";
 include_once ('config.inc.php');
 include_once 'database_connect.inc.php';
 include_once (realpath('templates/stapped/header.php'));
 include_once (realpath('templates/stapped/navbar.php'));
 ?>
-<!--Waiting for Moo-->
+
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">

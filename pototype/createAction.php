@@ -15,6 +15,6 @@ if ($connect->query($sql) === TRUE) {
 }      
 $connect->close();
 
-header("Location: drashboard.php");
+header("Location: dashboard.php");
 die();
 ?>

@@ -18,6 +18,6 @@ $result = $connect->query($sql);
                
 $connect->close();
 
-header("Location: drashboard.php");
+header("Location: process.php");
 die();
 ?>

@@ -1,8 +1,9 @@
 <?php
-$page['title'] = "Student Dashboard";
+$page['title'] = "Teacher Course";
 include_once ('config.inc.php');
 include_once 'database_connect.inc.php';
 include_once (realpath('templates/stapped/header.php'));
+include_once (realpath('templates/stapped/navbar.php'));
 ?>
 
 <body>
@@ -19,9 +20,10 @@ include_once (realpath('templates/stapped/header.php'));
             </div>
         </div>
     </div>
-    <div class="container border border-primary">
+    <div class="container">
+        <div class="row"><h1>Course List</h1></div>
         <div class ="row">
-            <h1>Course</h1>
+        <a class="btn btn-primary" href="process.php" role="button">Subject 262</a>
         </div>
     </div>
 </body>

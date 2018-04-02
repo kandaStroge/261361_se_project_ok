@@ -23,12 +23,7 @@ include_once (realpath('templates/stapped/navbar.php'));
     <div class="container">
         <div class="row"><h1>Course List</h1></div>
         <div class ="row">
-            <div class="col">
-                <a class="btn btn-primary" href="process.php" role="button">Subject 262</a>
-            </div>
-            <div class="col">
-                <a class="btn btn-primary" href="submission.php" role="button">Page Submisssion</a>
-            </div>
+            <a class="btn btn-primary" href="process.php" role="button">Subject 262</a>
         </div>
     </div>
 </body>

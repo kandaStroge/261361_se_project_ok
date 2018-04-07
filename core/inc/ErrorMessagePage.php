@@ -4,10 +4,12 @@ class ErrorMessagePage
 {
     private $errorMessage = [
         "404" => [
+            "code"=> 200,
             "header" => "Page Not Found",
             "mess" => "This pages cannot searching or not found"
         ],
         "permission_denied" => [
+            "code"=> 200,
             "header" => "Permission Denied",
             "mess" => "This section or page not allow visited"
         ]
@@ -23,6 +25,7 @@ class ErrorMessagePage
             return $this->getErrorMessage()[$error_code];
         }
         $temp = [
+            "code"=> 301,
             "header" => "Parameter not found",
             "mess" => "Something wrong"
         ];

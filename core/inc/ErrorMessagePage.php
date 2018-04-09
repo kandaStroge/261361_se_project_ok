@@ -12,6 +12,11 @@ class ErrorMessagePage
             "code"=> 200,
             "header" => "Permission Denied",
             "mess" => "This section or page not allow visited"
+        ],
+        "301" => [
+            "code" => 200,
+            "header" => "Page Moved",
+            "mess" => "The section is moved to another location"
         ]
     ];
 

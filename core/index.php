@@ -1,4 +1,4 @@
 <?php
-require_once (realpath("inc/config.php"));
+require_once ('config.php');
 session_create_id();
 ?>

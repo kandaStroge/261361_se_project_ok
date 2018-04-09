@@ -21,15 +21,17 @@ include_once (realpath('templates/stapped/navbar.php'));
       </div>
     </div>
   </div>
-
-  <!--contain-->
-  <div class="container">
-      <div class="row"><h1>Course Overview</h1></div>
-      <div class ="row">
-        <div class="col">
-          <a class="btn btn-primary" href="course.php" role="button">Subject 262</a>
-        </div>
+  <!--Contain-->
+  <div class ="container">
+    <div class="card">
+      <div class="card-header">
+        Coruse Overview
       </div>
+      <div class="card-body">
+        <!--h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p-->
+        <a class="btn btn-primary" href="course.php" role="button">Subject 262</a>
+      </div>
+    </div>
   </div>
-
 </body>

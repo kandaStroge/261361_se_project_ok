@@ -3,7 +3,6 @@
     <div class ="container">
         <ul class="list-group">
         <li class="list-group-item"><a href="dashboard.php">Dashborad</a></li>
-        <li class="list-group-item"><a href="course.php">Course</a></li>
         </ul>
     </div>
 </nav>

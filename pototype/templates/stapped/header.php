@@ -25,3 +25,27 @@
 
 </head>
 
+<!--Background พื้นหลัง
+<style type="text/css">
+    body{
+        background-image:url(BG.png);
+        background-size:cover;
+        background-attachment:fixed;	
+    }
+    .content{
+        background:black;
+        width : 50%;
+        padding:40px;
+        margin:100px auto;
+    }
+    p{
+        font-size :25px;
+        color :black;
+    #box1{
+        padding : 50px;
+        clear:both;
+        width:300px;
+		margin:3px;
+	}
+</style>
+-->

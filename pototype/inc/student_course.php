@@ -14,20 +14,20 @@ include_once (realpath('templates/stapped/navbar.php'));
                     <img src="img/pic.png" alt="Responsive image" class="rounded float-left" style="width:100%;height: 130px;">
                 </div>
                 <div class="col">
-                    <h1 class="display-3">Course_name</h1>
-                    <p class="lead">Couese_ID</p>
+                    <h1 class="display-3">Course's name</h1>
+                    <p class="lead">Couese's ID</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row"><h1>Course List</h1></div>
+        <div class="row"><h1><!--header something--></h1></div>
         <div class ="row">
             <div class="col">
-                <a class="btn btn-primary" href="process.php" role="button">Subject 262</a>
+                <a class="btn btn-primary" href="process.php" role="button">Project Process</a>
             </div>
             <div class="col">
-                <a class="btn btn-primary" href="submission.php" role="button">Page Submisssion</a>
+               <!--empty-->
             </div>
         </div>
     </div>

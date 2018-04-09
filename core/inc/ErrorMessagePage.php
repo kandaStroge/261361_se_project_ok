@@ -17,6 +17,11 @@ class ErrorMessagePage
             "code" => 200,
             "header" => "Page Moved",
             "mess" => "The section is moved to another location"
+        ],
+        "902" => [
+            "code" => 200,
+            "header" => "Register Failed",
+            "mess" => "TODO Write details later"
         ]
     ];
 

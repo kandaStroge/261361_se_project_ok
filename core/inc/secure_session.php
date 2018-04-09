@@ -1,10 +1,10 @@
 <?php
 require_once  (__DIR__."/../config.php");
 function sec_session_start(){
-    $temp_sec_name = md5(rand(0,1000));
+    $temp_sec_name = md5("abcdefghijklmnopqrstuvwxyz");
     $sec = SECURE;
     $httponly = true;
-    if (ini_set('session.use_only_cookies', 1) == false){
+    if (ini_set('session.use_only_cookies', 1) === true) {
         header("Location: ./ErrorMessagePage.php?code=404");
         exit();
     }

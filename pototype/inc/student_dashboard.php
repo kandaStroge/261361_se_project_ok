@@ -5,7 +5,6 @@ include_once 'database_connect.inc.php';
 include_once (realpath('templates/stapped/header.php'));
 include_once (realpath('templates/stapped/navbar.php'));
 ?>
-
 <style>
 *{box-sizing: border-box;}
 
@@ -103,8 +102,6 @@ body {
 	</style>
 
 <body>
-<!--Date/Month/Year-->
-
   <!--Tab-->
   <script>
   $( function() {
@@ -126,7 +123,8 @@ body {
 
     <!--กล่องข้อความ -->
     <div class = "row">
-        <div class = "col-md-6" align = "center">
+	
+        <div class = "col-md-6" align = "right">
             <div class="card border-primary" style="max-width: 50rem;"align = "left"> 
                 <div class="card-header">Course Overview</div>
                 <div class="card text-center">
@@ -144,10 +142,8 @@ body {
                 </li>
                 </ul>
                 <div class = "rows">
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3">					
+                
+                <div class="col-md-3" >					
                    <label for="year-selector" ></label>
                     <select id="year-selector"class="form-control">
                         <option>Sort by</option>
@@ -265,6 +261,7 @@ function checkTime(i) {
 
 
     </div>
+	
 	</div>
 <!-- Optional JavaScript -->
     
@@ -274,9 +271,7 @@ function checkTime(i) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-  
-</html>
+
 </body>
 
 <?php include_once (realpath('templates/stapped/footer.php')); ?>

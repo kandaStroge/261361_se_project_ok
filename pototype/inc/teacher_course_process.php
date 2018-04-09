@@ -12,7 +12,7 @@ include_once (realpath('templates/stapped/navbar.php'));
         $('#addon').toggle();
     }
     </script>
-    <div class="container">
+    <div class="container border bg-white">
         <h1 class="mt-5">Subject 262<small> <a href="#" onclick="javascript:showplus()">[+]</a></small></h1>
         <div class="row" style="display:none" id="addon">
             <div class="d-flex p-2">

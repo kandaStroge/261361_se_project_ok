@@ -27,7 +27,7 @@ $percentage = $fin_work/$result->num_rows * 100;
 ?>
 
 <body>
-<div class="container">
+<div class="container border bg-white">
     <h1 class="mt-5 <?php  echo $percentage >= 100 ? "text-success" : "" ?>">Subject 262 <span class="badge <?php  echo $percentage >= 100 ? "badge-success" : "badge-secondary" ?>"><font style="color:<?php  echo $percentage >= 100 ? "white" : "yellow" ?>"><?=$fin_work?></font><small>/<?=$result->num_rows?></small></span></h1>
     <div class="row">
     <div class="col-sm-12">

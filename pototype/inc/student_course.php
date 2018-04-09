@@ -20,14 +20,16 @@ include_once (realpath('templates/stapped/navbar.php'));
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row"><h1><!--header something--></h1></div>
-        <div class ="row">
-            <div class="col">
-                <a class="btn btn-primary" href="process.php" role="button">Project Process</a>
+    <!--Contain-->
+    <div class ="container">
+        <div class="card">
+            <div class="card-header">
+                Coruse Overview
             </div>
-            <div class="col">
-               <!--empty-->
+            <div class="card-body">
+                <!--h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p-->
+                <a class="btn btn-primary" href="process.php" role="button">Project Process</a>
             </div>
         </div>
     </div>

@@ -85,5 +85,23 @@ function checkbrute($user_id, $mysqli){
     }
 }
 
+function render_page(){
+
+}
+
+function render_replace_callback($matches){
+    global $replacers;
+    $key = filter_input($matches[0], FILTER_SANITIZE_STRING);
+
+
+
+    if (array_key_exists($key, $replacers)){
+        return $replacers[$matches[1]];
+    }else{
+        return '';
+    }
+
+}
+
 ?>
 

@@ -16,6 +16,7 @@ $replacers = [
 function replace_callback($matches){
     global $replacers;
 
+
     // TODO Make filter input {}
 
     if (array_key_exists($matches[1], $replacers)){

@@ -40,62 +40,55 @@ if(!isset($_POST['u'], $_POST['p'])){
     $error_msg = "";
 
     $u = filter_input(INPUT_POST, 'u', FILTER_SANITIZE_STRING);
-    echo $u;
     $p = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
-    $sid = filter_input(INPUT_POST, 'sid', FILTER_SANITIZE_STRING);
-    echo  $p."\n";
-    echo $sid;
-    //$p = hash('sha512', $p);
     $p = password_hash($p, PASSWORD_BCRYPT);
-    echo $p;
+    $sid = filter_input(INPUT_POST, 'sid', FILTER_SANITIZE_STRING);
+
+    //echo $u;
+    //echo $sid;
+    //echo $p;
 
     $sql = "SELECT uid FORM tbl_members WHERE username = ? LIMIT 1";
     $stmt = $connect->prepare($sql);
     // TODO Make JS sha512 login password encyption
 
-    //check exist username
-
+    //Checking exist username
     if($stmt){
         $stmt->bind_param('s', $u);
         $stmt->execute();
         $stmt->store_result();
 
         if($stmt->num_rows == 1 ){
-            $error_msg .= "<div class='alert alert-danger'>Plase use another USERNAME</div>";
+            $error_msg .= "<div class='alert alert-danger'>Please use another USERNAME</div>";
             $stmt->close();
         }
     }else{
-        //TODO  is ERROR plz fix
+        //echo  "Exist username";
         $error_msg .= "DB error line 39";
         //$stmt->close();
 
     }
 
-    //reg
-
+    //Register
     if (!empty($error_msg)) {
-        $sql = "INSERT INTO tbl_members (username, password, email, sid) VALUES (?,?,?,?)";
-        if ($insert_stmt = $connect->prepare("INSERT INTO tbl_members (username, password, email, sid) VALUES (?, ?, ?, ?)")){
+        $sql = "INSERT INTO tbl_members (username, password, email, sid, role) VALUES ('$u','$p','$sid','$sid', '0')";
+        if ($insert_stmt = $connect->prepare("INSERT INTO tbl_members (username, password, email, sid, role) VALUES ('$u','$p','$sid','$sid', '0')")){
             $insert_stmt->bind_param('ssss', $u, $p, $sid, $sid);
             $x = $insert_stmt->execute();
             //echo $insert_stmt->error;
             echo "yes";
             if (! $x) {
-               echo "Inser fail";
-               header('Location: ./core/error.php?code=902');
+                echo "Insert fail";
+                header('Location: ./core/error.php?code=902');
             }else{
                 header('Location: ./logout.php');
             }
         }
-
     }
     //
 
 
 }
-
-
-
 
 ?>
 

@@ -10,7 +10,7 @@ $menu_list = [
     ["dashboard.php", "Dashboard", 0],
     ["alpha_display_username.php", "Delete member", 1],
     ["alpha_public_private.php", "Set private", 1],
-    ["admin/index.php", "Configulation", "1"]
+    ["setting.php", "Configulation", "1"]
 ];
 $content = '<ul class="list-group">';
 
@@ -28,7 +28,8 @@ $replacers = [
     'TEMPLATE_DIR'=> TEMPLATE_FOLDER,
     'LOGIN_CHECK_PROCESS'=> "./login.php",
     'PAGE_TITLE' => $page['title'],
-    'UI_CONTENT' => $content
+    'UI_CONTENT' => $content,
+    'USERNAME' => $_SESSION['username']
 ];
 
 

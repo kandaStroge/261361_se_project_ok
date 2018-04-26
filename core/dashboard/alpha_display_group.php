@@ -5,36 +5,35 @@ require_once (__DIR__."/../template/navbar.php");
 
 $header = "alpha_display_group";
 
-$page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/alpha_display_username.html");
+$page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/public_private.html");
 
 $cid = $_GET['id'];
-$sql = "SELECT * FROM tbl_activity_checked WHERE course_id = $cid ";
+$sql = "SELECT * FROM tbl_activity_checked JOIN tbl_activity a on tbl_activity_checked.aid = a.id JOIN tbl_courses_groups g on tbl_activity_checked.gid = g.id 
+        WHERE tbl_activity_checked.course_id = $cid" ;
 $result = $connect->query($sql);
 
 //--Content part--//
 $content = "";
-$content .= '
-    <div class="container">
-        <table class="table">
-        <thead>
+//Display username data
+if ($result = $connect->prepare($sql)) {
+    $res = $connect->query($sql);
+    $content .= '
+        <div class= "table-responsive">
+        <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
         <tr>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col">Group name</th>
+        <th scope="col">Sub Assignment1</th>
+        <th scope="col">Sub Assignment2</th>
+        <th scope="col">Sub Assignment3</th>
+        <th scope="col">Sub Assignment4</th>
         </tr>
         </thead>
         <tbody>
 ';
-
-
-
-//Display username data
-if ($result = $connect->prepare($sql)) {
-
-    $res = $connect->query($sql);
     while($row = $res->fetch_assoc()) {
         $content .= '<tr>';
-        //$content .= '<td>' .$row["username"] .' </td>';
-        //$content .= '<td><a href="alpha_delete.php?id='.$row["uid"].'" class="badge badge-danger">Delete</a></td>';
+        $content .= '<td>' .$row["group_name"] .' </td>';
         $content .= '</tr>';
     }
 

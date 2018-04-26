@@ -32,6 +32,10 @@ function login($username, $password , $mysqli){
                         $username);
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = $role;
+                    $_SESSION['isadmin'] = false;
+                    if($role == 1){
+                        $_SESSION['isadmin'] = true;
+                    }
 
                     //TODO for secure plz new imprement session data
                     $_SESSION['sid'] = ($sid == "")?"":$sid;

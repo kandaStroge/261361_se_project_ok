@@ -8,6 +8,8 @@ $page['title'] = "alpha_display_username";
 require_once (__DIR__."/../template/header.php");
 require_once (__DIR__."/../template/navbar.php");
 
+$header = "alpha_display_username";
+
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/alpha_display_username.html");
 
 $sql = "SELECT uid, username FROM tbl_members";
@@ -60,6 +62,7 @@ if ($result = $connect->prepare($sql)) {
 $replacers = [
     'TEMPLATE_DIR' => TEMPLATE_FOLDER,
     'PAGE_TITLE' => $page['title'],
+    'HEADER' => $header,
     'CONTENT' => $content
 ];
 

@@ -18,6 +18,8 @@ $replacers = [
     'error_title'=> $p['header'],
     'error_header'=> $p['header'],
     'error_messgae' => $p['mess'],
+    'TEMPLATE_DIR' => "../templetes/default/",
+    'HOME_DIR' => "http://".$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER['PHP_SELF'])."/")
 ];
 
 

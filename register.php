@@ -8,13 +8,19 @@ require_once (__DIR__."/core/inc/database_api.php");
 
 sec_session_start();
 
-
+$error_msg = "";
+$error_message_prev = "";
 $page = file_get_contents(TEMPLATE_FOLDER."reg_form_temp.html");
+if(isset($_SESSION['error_message'])){
+    $error_message_prev = $_SESSION['error_message'];
+}
+
 
 
 $replacers = [
     'TEMPLATE_DIR'=> TEMPLATE_FOLDER,
     'LOGIN_CHECK_PROCESS'=> "./register.php",
+    'LOGIN_ERROR_MSG' => $error_message_prev
 ];
 
 
@@ -35,9 +41,10 @@ function replace_callback($matches){
 
 if(!isset($_POST['u'], $_POST['p'])){
     // not login process
+    unset($_SESSION['error_message']);
     echo preg_replace_callback("|{(\w*)}|", 'replace_callback', $page);
 }else{
-    $error_msg = "";
+
 
     $u = filter_input(INPUT_POST, 'u', FILTER_SANITIZE_STRING);
     $p = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
@@ -48,13 +55,15 @@ if(!isset($_POST['u'], $_POST['p'])){
     //echo $sid;
     //echo $p;
 
-    $sql = "SELECT uid FORM tbl_members WHERE username = ? LIMIT 1";
+    $sql = "SELECT uid FROM tbl_members WHERE username = ? LIMIT 1";
     $stmt = $connect->prepare($sql);
+
     // TODO Make JS sha512 login password encyption
 
     //Checking exist username
     if($stmt){
         $stmt->bind_param('s', $u);
+
         $stmt->execute();
         $stmt->store_result();
 
@@ -64,30 +73,31 @@ if(!isset($_POST['u'], $_POST['p'])){
         }
     }else{
         //echo  "Exist username";
-        $error_msg .= "DB error line 39";
-        //$stmt->close();
+        $error_msg .= "<div class='alert alert-danger'>DBERROR</div>";
+        $stmt->close();
 
     }
 
     //Register
-    if (!empty($error_msg)) {
-        $sql = "INSERT INTO tbl_members (username, password, email, sid, role) VALUES ('$u','$p','$sid','$sid', '0')";
-        if ($insert_stmt = $connect->prepare("INSERT INTO tbl_members (username, password, email, sid, role) VALUES ('$u','$p','$sid','$sid', '0')")){
+    if ($error_msg == "") {
+        $sql = "INSERT INTO tbl_members (username, password, email, sid, role) VALUES (?, ?, ?, ?, '0')";
+        echo "isindent";
+        if ($insert_stmt = $connect->prepare($sql)){
             $insert_stmt->bind_param('ssss', $u, $p, $sid, $sid);
             $x = $insert_stmt->execute();
             //echo $insert_stmt->error;
             echo "yes";
             if (! $x) {
                 echo "Insert fail";
-                header('Location: ./core/error.php?code=902');
+                $_SESSION['error_message'] = $error_msg;
+                header('Location: ./register.php');
             }else{
-                header('Location: ./logout.php');
+                echo "gg";
+                unset($_SESSION['error_message']);
+                header('Location: ./core/error.php?code=902');
             }
         }
     }
-    //
-
-
 }
 
 ?>

@@ -18,10 +18,15 @@ class ErrorMessagePage
             "header" => "Page Moved",
             "mess" => "The section is moved to another location"
         ],
+        "901" => [
+            "code" => 200,
+            "header" => "Login Failed",
+            "mess" => "Somthing in login system is fail please contact administrator"
+        ],
         "902" => [
             "code" => 200,
-            "header" => "Register Failed",
-            "mess" => "TODO Write details later"
+            "header" => "Register Sucessful",
+            "mess" => "Thanks for register"
         ]
     ];
 

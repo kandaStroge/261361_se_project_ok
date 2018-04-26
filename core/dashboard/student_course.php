@@ -20,7 +20,7 @@ $replacers = [
 $sid = $_SESSION['sid'];
 
 $sql = "SELECT course_id FROM tbl_members_course WHERE sid=?";
-$course_conten = "";
+$course_content = "";
 
 if($stmt = $connect->prepare($sql)) {
 
@@ -28,23 +28,24 @@ if($stmt = $connect->prepare($sql)) {
     $stmt->execute();
     $stmt->bind_result($res);
     $stmt->store_result();
-    $course_list = [];
-    while ($stmt->fetch()){
-        array_push($course_list, $res);
-    }
+    if($stmt->num_rows > 0){
+        $course_list = [];
+        while ($stmt->fetch()){
+            array_push($course_list, $res);
+        }
 
-    //TODO fix to use stmt
+        //TODO fix to use stmt
 
-    $k = implode(', ', $course_list);
+        $k = implode(', ', $course_list);
 
 
-    $sql = "SELECT cid, course_name, course_code, private, details FROM tbl_courses WHERE cid IN ({$k})";
+        $sql = "SELECT cid, course_name, course_code, private, details FROM tbl_courses WHERE cid IN ({$k})";
 
-    $res = $connect->query($sql);
-    $course_list = [];
-    $card_content = '<div class="card-group">';
-    while ($row = $res->fetch_assoc()){
-        $card_content .= '
+        $res = $connect->query($sql);
+        $course_list = [];
+        $card_content = '<div class="card-group">';
+        while ($row = $res->fetch_assoc()){
+            $card_content .= '
            
             <div class="col-4"><a href="./dashboard.php?id='.$row["cid"].'">
                 <div class="card"> <img class="card-img-top" src="'.TEMPLATE_FOLDER.'/img/cpe_logo_bg.png" alt="Card image cap">
@@ -59,11 +60,14 @@ if($stmt = $connect->prepare($sql)) {
                 </a>
             </div>
             ';
+        }
+        $card_content .= '</div>';
+
+
+        $course_content = $card_content;
+
     }
-    $card_content .= '</div>';
 
-
-    $course_conten = $card_content;
 
 
 
@@ -73,7 +77,7 @@ $replacers = [
     'STUDENT_NAME'=> $_SESSION['username'],
     'PAGE_TITLE' => $page['title'],
     'STUDENT_ID'=> $_SESSION['sid'],
-    'CONTENT' => $course_conten
+    'CONTENT' => $course_content
 ];
 
 

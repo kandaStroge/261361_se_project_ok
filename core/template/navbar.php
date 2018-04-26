@@ -8,9 +8,7 @@ $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/navbar.htm
 
 $menu_list = [
     ["dashboard.php", "Dashboard", 0],
-    ["alpha_display_username.php", "Delete member", 1],
-    ["alpha_public_private.php", "Set private", 1],
-    ["setting.php", "Configulation", "1"]
+    ["setting.php", "Configuration", "1"]
 ];
 $content = '<ul class="list-group">';
 

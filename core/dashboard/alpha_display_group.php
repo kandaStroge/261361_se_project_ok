@@ -1,19 +1,15 @@
 <?php
-require_once (__DIR__."/../config.php");
-require_once (__DIR__."/../inc/secure_session.php");
-require_once (__DIR__."/../functions.php");
-require_once (__DIR__."/../inc/database_api.php");
-
-$page['title'] = "alpha_display_username";
+$page['title'] = "alpha_display_group";
 require_once (__DIR__."/../template/header.php");
 require_once (__DIR__."/../template/navbar.php");
 
-$header = "alpha_display_username";
+$header = "alpha_display_group";
 
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/alpha_display_username.html");
 
-$sql = "SELECT uid, username FROM tbl_members";
-$result = $connect->prepare($sql);
+$cid = $_GET['id'];
+$sql = "SELECT * FROM tbl_activity_checked WHERE course_id = $cid ";
+$result = $connect->query($sql);
 
 //--Content part--//
 $content = "";
@@ -22,7 +18,7 @@ $content .= '
         <table class="table">
         <thead>
         <tr>
-        <th scope="col">username</th>
+        <th scope="col"></th>
         <th scope="col"></th>
         </tr>
         </thead>
@@ -37,8 +33,8 @@ if ($result = $connect->prepare($sql)) {
     $res = $connect->query($sql);
     while($row = $res->fetch_assoc()) {
         $content .= '<tr>';
-        $content .= '<td>' .$row["username"] .' </td>';
-        $content .= '<td><a href="alpha_delete.php?id='.$row["uid"].'" class="badge badge-danger">Delete</a></td>';
+        //$content .= '<td>' .$row["username"] .' </td>';
+        //$content .= '<td><a href="alpha_delete.php?id='.$row["uid"].'" class="badge badge-danger">Delete</a></td>';
         $content .= '</tr>';
     }
 
@@ -46,7 +42,7 @@ if ($result = $connect->prepare($sql)) {
     echo "0 results";
 }
 
-    $content .= '
+$content .= '
         </tbody>
         </table>
         </div>

@@ -4,24 +4,21 @@ require_once (__DIR__."/../inc/secure_session.php");
 require_once (__DIR__."/../functions.php");
 require_once (__DIR__."/../inc/database_api.php");
 
-$page['title'] = "alpha_hidden";
+$page['title'] = "Student Dashboard";
 require_once (__DIR__."/../template/header.php");
 require_once (__DIR__."/../template/navbar.php");
 
-$header = "alpha_hidden";
+$header = "teacher process";
 
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/alpha_display_username.html");
 
+$cid = $_GET['id'];
+$sql = "SELECT * FROM tbl_courses WHERE cid = $cid";
+$result = $connect->query($sql);
 
-//--Content part--//
 $content = "";
-$content .= "
-<label class=\"switch\">
-  <input type=\"checkbox\">
-  <span class=\"slider\"></span>
-</label>
-";
-//----------------//
+$content .= '<a href="show.php?id='.$cid.'"><button type="button" class="btn btn-primary">Go To Process All Group Page</button></a>';
+$content .= '<br><br><a href="alpha_update_private.php?id='.$cid.'"><button type="button" class="btn btn-secondary">Change public or private</button></a>';
 
 $replacers = [
     'TEMPLATE_DIR' => TEMPLATE_FOLDER,

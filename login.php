@@ -23,19 +23,6 @@ $replacers = [
 ];
 
 
-function replace_callback($matches){
-    global $replacers;
-
-    // TODO Make filter input {}
-
-    if (array_key_exists($matches[1], $replacers)){
-        return $replacers[$matches[1]];
-    }else{
-        return '';
-    }
-
-}
-
 if(!isset($_POST['u'], $_POST['p'])){
     // not login process
     echo preg_replace_callback("|{(\w*)}|", 'replace_callback', $page);

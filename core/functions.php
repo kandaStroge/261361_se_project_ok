@@ -1,5 +1,18 @@
 <?php
 
+function replace_callback($matches){
+    global $replacers;
+
+    // TODO Make filter input {}
+
+    if (array_key_exists($matches[1], $replacers)){
+        return $replacers[$matches[1]];
+    }else{
+        return '';
+    }
+
+}
+
 function login($username, $password , $mysqli){
     $sql = "SELECT uid, username, password, role, sid FROM tbl_members WHERE username=? LIMIT 1";
     if ($stmt = $mysqli->prepare($sql)){

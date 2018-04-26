@@ -1,33 +1,16 @@
 <?php
-require_once (__DIR__."/core/config.php");
-require_once (__DIR__."/core/inc/secure_session.php");
-require_once (__DIR__."/core/functions.php");
-require_once (__DIR__."/core/inc/database_api.php");
-
-
-
-sec_session_start();
-
-$error_msg = "";
-$error_message_prev = "";
-$page = file_get_contents(TEMPLATE_FOLDER."reg_form_temp.html");
-if(isset($_SESSION['error_message'])){
-    $error_message_prev = $_SESSION['error_message'];
-}
-
-
+require_once (__DIR__."./../config.php");
+require_once (__DIR__."/../inc/secure_session.php");
+require_once (__DIR__."/../functions.php");
+require_once (__DIR__."/../inc/database_api.php");
 
 $replacers = [
     'TEMPLATE_DIR'=> TEMPLATE_FOLDER,
     'LOGIN_CHECK_PROCESS'=> "./register.php",
-    'LOGIN_ERROR_MSG' => $error_message_prev
+    'LOGIN_ERROR_MSG' => "ssss"
 ];
 
-
-
-
-
-
+$page = file_get_contents(TEMPLATE_FOLDER."reg_form_temp.html");
 if(!isset($_POST['u'], $_POST['p'])){
     // not login process
     unset($_SESSION['error_message']);
@@ -66,7 +49,6 @@ if(!isset($_POST['u'], $_POST['p'])){
         $stmt->close();
 
     }
-    echo $error_msg;
 
     //Register
     if ($error_msg == "") {
@@ -87,12 +69,7 @@ if(!isset($_POST['u'], $_POST['p'])){
                 header('Location: ./core/error.php?code=902');
             }
         }
-    }else{
-        $_SESSION['error_message'] = $error_msg;
-        header('Location: ./register.php');
     }
 }
 
 ?>
-
-

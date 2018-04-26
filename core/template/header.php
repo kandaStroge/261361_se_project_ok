@@ -5,14 +5,9 @@ require_once (__DIR__."/../functions.php");
 require_once (__DIR__."/../inc/database_api.php");
 
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/header.html");
-$templete_prefix_bool = "";
-if(!isset($templete_prefix)){
-    $templete_prefix_bool = "";
-}else{
-    $templete_prefix_bool = $templete_prefix;
-}
+
 $replacers = [
-    'TEMPLATE_DIR'=> $templete_prefix_bool.TEMPLATE_FOLDER,
+    'TEMPLATE_DIR'=> TEMPLATE_FOLDER,
     'LOGIN_CHECK_PROCESS'=> "./login.php",
     'PAGE_TITLE' => $page['title']
 ];

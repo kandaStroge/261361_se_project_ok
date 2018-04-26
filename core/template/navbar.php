@@ -5,18 +5,12 @@ require_once (__DIR__."/../functions.php");
 require_once (__DIR__."/../inc/database_api.php");
 
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/navbar.html");
-$logout_prefix_bool = "";
-if(!isset($logout_prefix)){
-    $logout_prefix_bool = "";
-}else{
-    $logout_prefix_bool = $logout_prefix;
-}
 
 $menu_list = [
     ["dashboard.php", "Dashboard", 0],
     ["alpha_display_username.php", "Delete member", 1],
     ["alpha_public_private.php", "Set private", 1],
-    ["admin/index.php", "Configulation", "1"]
+    ["setting.php", "Configulation", "1"]
 ];
 $content = '<ul class="list-group">';
 
@@ -35,7 +29,6 @@ $replacers = [
     'LOGIN_CHECK_PROCESS'=> "./login.php",
     'PAGE_TITLE' => $page['title'],
     'UI_CONTENT' => $content,
-    'LOGOUT_PREFIX' => $logout_prefix_bool,
     'USERNAME' => $_SESSION['username']
 ];
 

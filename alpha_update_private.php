@@ -12,6 +12,7 @@ if(isset($_GET['id']) ){
         $stmt->bind_param('i', $cid);
         $stmt->execute();
         $res = $stmt->get_result();
+        //
 
         if($res->num_rows == 1){
             $private_status = $res->fetch_array()['private'];

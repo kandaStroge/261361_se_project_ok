@@ -5,6 +5,12 @@ require_once (__DIR__."/../functions.php");
 require_once (__DIR__."/../inc/database_api.php");
 
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/navbar.html");
+$logout_prefix_bool = "";
+if(!isset($logout_prefix)){
+    $logout_prefix_bool = "";
+}else{
+    $logout_prefix_bool = $logout_prefix;
+}
 
 $menu_list = [
     ["dashboard.php", "Dashboard", 0],
@@ -28,7 +34,9 @@ $replacers = [
     'TEMPLATE_DIR'=> TEMPLATE_FOLDER,
     'LOGIN_CHECK_PROCESS'=> "./login.php",
     'PAGE_TITLE' => $page['title'],
-    'UI_CONTENT' => $content
+    'UI_CONTENT' => $content,
+    'LOGOUT_PREFIX' => $logout_prefix_bool,
+    'USERNAME' => $_SESSION['username']
 ];
 
 

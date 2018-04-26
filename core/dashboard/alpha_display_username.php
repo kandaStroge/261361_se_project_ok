@@ -15,11 +15,8 @@ $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/
 $sql = "SELECT uid, username FROM tbl_members";
 $result = $connect->prepare($sql);
 
-
 //--Content part--//
 $content = "";
-//$content .= '<button type="button" class="btn btn-primary">Test</button>';
-
 $content .= '
     <div class="container">
         <table class="table">

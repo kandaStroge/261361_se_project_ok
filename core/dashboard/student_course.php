@@ -44,28 +44,33 @@ if($stmt = $connect->prepare($sql)) {
     $course_list = [];
     $card_content = '<div class="card-group">';
     while ($row = $res->fetch_assoc()){
-        $card_content .= '
-           
-            <div class="col-4"><a href="./dashboard.php?id='.$row["cid"].'">
-                <div class="card"> <img class="card-img-top" src="'.TEMPLATE_FOLDER.'/img/cpe_logo_bg.png" alt="Card image cap">
-                    <div class="card-body" style="min-height: 180px;">
-                        <h4 class="card-title">'.$row["course_name"].'</h4>
-                            <p class="card-text">'.$row["details"].'</p>
-                    </div>                
-                    <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
+        $card_content .='
+            <div class="col-md-11">
+                <div class="jumbotron">
+                    <h5>'
+                        .$row["course_name"]
+                    .'</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-1">
+                            <a href ="./dashboard.php?id='.$row["cid"].'">
+                                <button type="button" class="btn btn-primary" >
+                                    View assignment
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-7">
+                        </div>
+                     </div>
                 </div>
-                </a>
             </div>
-            ';
+        ';
     }
-    $card_content .= '</div>';
-
 
     $course_conten = $card_content;
-
-
 
 }
 $replacers = [

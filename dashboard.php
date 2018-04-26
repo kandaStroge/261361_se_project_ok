@@ -22,10 +22,10 @@ if( $_SESSION['role'] == 0) {
         require_once(__DIR__ . "/core/dashboard/teacher_course.php");
 
     } else {
-        require_once(__DIR__ . "/core/dashboard/student_course.php");
+        require_once(__DIR__ . "/core/dashboard/teacher_process.php");
     }
 }else{
-    echo "access denined";
+    echo "access denied";
 }
 
 

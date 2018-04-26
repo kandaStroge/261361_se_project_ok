@@ -36,8 +36,8 @@ if($stmt = $connect->prepare($sql)) {
     //TODO fix to use stmt
 
     $k = implode(', ', $course_list);
-    $joint_content = "<div>JOIN COURSE</div>";
-    echo $joint_content;
+    //$joint_content = "<div>JOIN COURSE</div>";
+    //echo $joint_content;
     if (strlen($k) <= 0) {
 
 

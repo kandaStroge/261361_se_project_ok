@@ -39,7 +39,7 @@ if ($result = $connect->prepare($sql)) {
     while($row = $res->fetch_assoc()) {
         $content .= '<tr>';
         $content .= '<td>' .$row["username"] .' </td>';
-        $content .= '<td><a href="alpha_delete.php" class="badge badge-danger">Delete</a></td>';
+        $content .= '<td><a href="alpha_delete.php?id='.$row["uid"].'" class="badge badge-danger">Delete</a></td>';
         $content .= '</tr>';
     }
 

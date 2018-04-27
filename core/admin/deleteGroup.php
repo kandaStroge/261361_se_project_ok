@@ -48,7 +48,7 @@ if(!isset($_GET['id'])){
     ';
 }else{
     $uid = $_GET['id'];
-    $sql = "DELETE FROM tbl_members WHERE uid = $uid";
+    $sql = "DELETE FROM tbl_courses_groups WHERE id = $id";
     $res = $connect->query($sql);
 
     if($res = $connect->query($sql)){

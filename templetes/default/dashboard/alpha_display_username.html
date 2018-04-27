@@ -16,6 +16,11 @@
     }
 </style>
 <body>
+<script>
+    function showplus(){
+        $('#addon').toggle();
+    }
+</script>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <div class="row">
@@ -28,6 +33,26 @@
         </div>
     </div>
 </div>
+
+<div class="container border bg-white">
+    <h1 class="mt-5">{HEADER}<small> <a href="#" onclick="javascript:showplus()">[+]</a></small></h1>
+    <div class="row" style="display:none" id="addon">
+        <div class="d-flex p-2">
+            <form action="createAction.php" method="get">
+                <input type="text" name="name" id="" placeholder="Activity Name" >
+                <input type="hidden" name="cid" value="{AUTO_CID}">
+                <input type="submit" value="เพิ่มกิจกรรม">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            {ACTIVITY_TABLE}
+        </table>
+    </div>
+
+</div>
+
 <!--Contain-->
 <div class ="container">
     {CONTENT}

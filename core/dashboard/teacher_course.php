@@ -8,7 +8,7 @@ $page['title'] = "Teacher Dashboard";
 require_once (__DIR__."/../template/header.php");
 require_once (__DIR__."/../template/navbar.php");
 
-$page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/student_course.html");
+$page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/teacher_course.html");
 
 $replacers = [
     'TEMPLATE_DIR'=> TEMPLATE_FOLDER,

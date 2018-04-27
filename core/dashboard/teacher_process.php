@@ -17,8 +17,7 @@ $sql = "SELECT * FROM tbl_courses WHERE cid = $cid";
 $result = $connect->query($sql);
 
 $content = "";
-$content .= '<a href="show.php?id='.$cid.'"><button type="button" class="btn btn-primary">Go To Process All Group Page</button></a>';
-$content .= '<br><br><a href="alpha_update_private.php?id='.$cid.'"><button type="button" class="btn btn-secondary">Change public or private</button></a>';
+$content .= '<br><a href="show.php?id='.$cid.'"><button type="button" class="btn btn-primary">Go To Process All Group Page</button></a> <a href="alpha_update_private.php?id='.$cid.'"><button type="button" class="btn btn-secondary">Change public or private</button></a>';
 
 $sql = "SELECT * FROM tbl_activity WHERE course_id = ? ";
 $stmt = $connect->prepare($sql);

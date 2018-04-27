@@ -4,11 +4,11 @@ require_once (__DIR__."/../inc/secure_session.php");
 require_once (__DIR__."/../functions.php");
 require_once (__DIR__."/../inc/database_api.php");
 
-$page['title'] = "Student Dashboard";
+$page['title'] = "Teacher Dashboard";
 require_once (__DIR__."/../template/header.php");
 require_once (__DIR__."/../template/navbar.php");
 
-$header = "teacher process";
+$header = "Course Process";
 
 $page_content = file_get_contents(__DIR__."/../../".TEMPLATE_FOLDER."/dashboard/alpha_display_username.html");
 

@@ -7,6 +7,7 @@ $ADMIN_USERMANGE_MENU_LIST = [
     "adduser" => ["Add user", "addUser.php"],
     "addgroup" => ["Add Group", "addGroup.php"],
     "deleteuser" =>["Delete User", "deleteUser.php"],
+    "addcourse" => ["Add course", "addCourse.php"]
 
 ];
 if(!isset($_GET['a'])){

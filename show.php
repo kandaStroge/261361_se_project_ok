@@ -6,7 +6,7 @@ require_once (__DIR__."/core/functions.php");
 require_once (__DIR__."/core/inc/database_api.php");
 
 sec_session_start();
-$page['title'] = "wwwwww";
+$page['title'] = "Show Table";
 require_once (__DIR__."./core/template/header.php");
 require_once (__DIR__."./core/template/navbar.php");
 

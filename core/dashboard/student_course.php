@@ -4,7 +4,7 @@ require_once (__DIR__."/../inc/secure_session.php");
 require_once (__DIR__."/../functions.php");
 require_once (__DIR__."/../inc/database_api.php");
 
-$page['title'] = "wwwwww";
+$page['title'] = "Student Dashboard";
 require_once (__DIR__."/../template/header.php");
 require_once (__DIR__."/../template/navbar.php");
 
